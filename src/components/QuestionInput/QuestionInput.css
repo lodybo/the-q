@@ -1,0 +1,43 @@
+.QuestionInput {
+  padding: 15px;
+}
+
+.QuestionInput label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.QuestionInput label p {
+  margin: 0;
+}
+
+.QuestionInput label input[type=text], .QuestionInput label textarea {
+  width: 100%;
+  padding: 5px 2.5px;
+  
+  border: #DDD solid 1px;
+  border-radius: 2.5px;
+
+  color: #7C7C7C;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.QuestionInput input[type=submit] {
+  background-color: var(--lightblue);
+  color: var(--white);
+  
+  border: 0;
+  border-radius: 2.5px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  padding: 10px 15px;
+
+  transition: background-color 0.1s ease-in-out;
+}
+
+.QuestionInput input[type=submit]:hover {
+  background-color: var(--deepblue);
+}
