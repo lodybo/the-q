@@ -2,7 +2,7 @@
   steps:
     - name: Testing
       service: web
-      command: npm t
+      command: npm t -- --coverage
     
     - name: Building
       service: web
