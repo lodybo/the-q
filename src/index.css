@@ -1,5 +1,27 @@
+html{
+  --lightblue: #72C9DD;
+  --paleblue: #5F7383;
+  --deepblue: #1C8AAF;
+  --darkbrown: #655250;
+  --lightbrown: #DD8F3C;
+  --darkred: #A7000D;
+  --lightred: #C92027;
+  --purple: #985291;
+  --green: #3D604E;
+  --white: #FFFFFF;
+  --black: #000000;
+  --twitter: #55acee;
+  --linkedin: #007bb5;
+
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
