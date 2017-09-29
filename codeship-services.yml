@@ -1,0 +1,5 @@
+web:
+  build:
+    image: q-continuum
+    dockerfile: Dockerfile
+  cached: true

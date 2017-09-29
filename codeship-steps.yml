@@ -1,0 +1,9 @@
+- type: parallel
+  steps:
+    - name: Testing
+      service: web
+      command: npm t
+    
+    - name: Building
+      service: web
+      command: npm run build
