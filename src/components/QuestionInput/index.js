@@ -16,7 +16,11 @@ class QuestionInput extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleSubmit() { }
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.props.handleSubmit(this.state.question);
+  }
 
   handleInputChange(event) {
     const inputName = event.target.name;
