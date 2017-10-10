@@ -3,10 +3,13 @@ import firebase from './lib/firebase';
 
 import Header from './components/Header';
 import QuestionInput from './components/QuestionInput';
+import QuestionList from './components/QuestionList/';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.db = firebase.firestore();
 
     this.state = {
       questions: []
@@ -15,14 +18,35 @@ class App extends Component {
     this.handleNewQuestion = this.handleNewQuestion.bind(this);
   }
 
-  handleNewQuestion(question) {
-    // this.setState(previousState => ({
-    //   questions: [...previousState.questions, question]
-    // }));
-    
-    const db = firebase.firestore();
+  componentDidMount() {
+    // db.collection("cities").get().then(function(querySnapshot) {
+    //   querySnapshot.forEach(function(doc) {
+    //       console.log(doc.id, " => ", doc.data());
+    //   });
+    // });
 
-    db.collection('questions').add({
+    const newState = [];
+    this.db.collection('questions').get().then(questionSnapshot => {
+      questionSnapshot.forEach(doc => {
+        const docData = doc.data();
+
+        const question = {
+          id: doc.id,
+          question: docData.question,
+          notes: docData.notes
+        };
+
+        newState.push(question);
+      });
+
+      this.setState({
+        questions: newState
+      });
+    });
+  }
+
+  handleNewQuestion(question) {
+    this.db.collection('questions').add({
       question: question.question,
       notes: question.notes
     }).then(ref => {
@@ -36,6 +60,7 @@ class App extends Component {
       <div>
         <Header/>
         <QuestionInput ref={child => this.child = child} handleSubmit={this.handleNewQuestion} />
+        <QuestionList questions={this.state.questions} />
       </div>
     );
   }
