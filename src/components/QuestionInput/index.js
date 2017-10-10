@@ -36,6 +36,13 @@ class QuestionInput extends Component {
     this.setState(newState);
   }
 
+  clearForm() {
+    this.setState({question: {
+      question: '',
+      notes: ''
+    }});
+  }
+
   render() {
     return (
       <form className="QuestionInput" onSubmit={this.handleSubmit}>
