@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import './QuestionList.css';
 
 import Spinner from '../Spinner';
+import QuestionListItem from '../QuestionListItem';
 
 class QuestionList extends Component {
-  componentDidMount() {
-    console.log('props: ', this.props.questions);
-  }
-
   render() {
     const questions = this.props.questions;
 
     const list = questions.map(question => {
       return (
-        <li key={question.id.toString()}>
-          <p className="question">{question.question}</p>
-          <p className="notes">{question.notes}</p>
+        <li key={question.id}>
+          <QuestionListItem question={question} />
         </li>
       )
     });
