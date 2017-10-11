@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import './QuestionList.css';
 
+import Spinner from '../Spinner';
+
 class QuestionList extends Component {
+  componentDidMount() {
+    console.log('props: ', this.props.questions);
+  }
+
   render() {
     const questions = this.props.questions;
 
@@ -14,9 +20,11 @@ class QuestionList extends Component {
       )
     });
 
-    return (
-      <ul className="QuestionList">{list}</ul>
-    );
+      if (!this.props.questions.length) {
+        return <Spinner />;
+      }
+
+      return <ul className="QuestionList">{list}</ul>
   }
 }
 

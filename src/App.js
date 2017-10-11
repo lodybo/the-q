@@ -3,7 +3,7 @@ import firebase from './lib/firebase';
 
 import Header from './components/Header';
 import QuestionInput from './components/QuestionInput';
-import QuestionList from './components/QuestionList/';
+import QuestionList from './components/QuestionList';
 
 class App extends Component {
   constructor(props) {
