@@ -19,14 +19,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // db.collection("cities").get().then(function(querySnapshot) {
-    //   querySnapshot.forEach(function(doc) {
-    //       console.log(doc.id, " => ", doc.data());
-    //   });
-    // });
-
-    const newState = [];
-    this.db.collection('questions').get().then(questionSnapshot => {
+    this.db.collection('questions').onSnapshot(questionSnapshot => {
+      const newState = [];
+      
       questionSnapshot.forEach(doc => {
         const docData = doc.data();
 
