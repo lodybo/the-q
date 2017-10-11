@@ -21,7 +21,7 @@ class App extends Component {
   componentDidMount() {
     this.db.collection('questions').onSnapshot(questionSnapshot => {
       const newState = [];
-      
+
       questionSnapshot.forEach(doc => {
         const docData = doc.data();
 
@@ -33,6 +33,8 @@ class App extends Component {
 
         newState.push(question);
       });
+
+      newState.reverse();
 
       this.setState({
         questions: newState
