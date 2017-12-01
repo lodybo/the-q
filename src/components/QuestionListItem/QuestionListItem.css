@@ -1,0 +1,16 @@
+.QuestionListItem {
+  padding-bottom: 15px;
+  border-bottom: #dedede solid 1px;
+  margin-bottom: 25px;
+}
+
+.QuestionListItem .question {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.QuestionListItem .notes {
+  font-style: italic;
+  margin: 0;
+}
