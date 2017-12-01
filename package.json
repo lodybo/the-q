@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^4.7.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
@@ -14,6 +15,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/jest": "^21.1.8",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "react-test-renderer": "^16.0.0"
