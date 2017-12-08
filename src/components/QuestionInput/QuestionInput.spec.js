@@ -5,22 +5,45 @@ import { mount, shallow } from 'enzyme';
 import QuestionInput from './index';
 
 describe('The QuestionInput component', () => {
+  let component;
+
+  beforeEach(() => {
+    component = mount(<QuestionInput />);
+  });
+
   it('should render', () => {
     shallow(<QuestionInput />);
   });
 
-  it('should fetch the entered data', () => {
-    const component = mount(<QuestionInput />);
+  it('should update state with the entered question', () => {
+    const questionInputField = component.find({ name: 'question' });
 
-    const textField = component.find({ name: 'question' });
-    const textArea = component.find('textarea');
+    questionInputField.simulate('change', {
+      target: {
+        name: 'question',
+        value: 'Who is the biggest tire manufacturer in the world?'
+      }
+    });
 
-    textField.simulate('change', { target: { value: 'Who is the biggest tire manufacturer in the world?' } });
-    // textArea.simulate('change', { target: { value: 'Lego, they even were in the Guiness Book of World Records with it'}});
+    const state = component.state();
+    expect(state.question.question).toBe('Who is the biggest tire manufacturer in the world?');
+  });
 
-    expect(textField).toBeDefined();
-    expect(textArea).toBeDefined();
+  it('should update state with the entered notes', () => {
+    const notesInputArea = component.find({ name: 'question' });
 
-    expect(textField.get(0).props.value).toBe('Who is the biggest tire manufacturer in the world?');
+    notesInputArea.simulate('change', {
+      target: {
+        name: 'question',
+        value: 'Lego, they even were in the Guiness Book of World Records with it!'
+      }
+    });
+
+    const state = component.state();
+    expect(state.question.question).toBe('Lego, they even were in the Guiness Book of World Records with it!');
   });
 });
+
+
+// TODO: This is for the edit tests
+// expect(textField.get(0).props.value).toBe('Who is the biggest tire manufacturer in the world?');
